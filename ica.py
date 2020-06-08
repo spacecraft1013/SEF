@@ -8,8 +8,8 @@ print("Loading CSV Data")
 sef_data = pd.read_csv("data/SEF_filled_mean.csv", dtype={"cty": str, "name": str, "_merge": str, "_merge1": str, "_merge2": str}, index_col=0)
 
 data_values = sef_data.loc[:, 'median_rent2016':'has_mom_rh_gp_p50_l']
-print(data_values)
 
+print("Running ICA")
 data_values = StandardScaler().fit_transform(data_values)
 
 ica = FastICA()
